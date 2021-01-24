@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+
+
+
+    <main>
+        <div class="jumbotron">
+            <section>
+                <h3>Zaloguj się</h3>
+                <form action="" id="login_form" method="POST">
+                    <div class="row">
+                        <label for="userName">Login:‏‏‎</label>
+                        <input type="text" id="username" name="username" placeholder="log" value="log" required>
+                    </div>
+
+                    <div class="row">
+                        <label for="pass">Hasło:</label>
+                        <input type="password" id="pass" name="pass" value="1111" placeholder="1111" required>
+                    </div>
+                    <div class="row">
+                        <input type="submit" value="Zaloguj">
+                    </div>
+                </form>
+                <% if (result) { %>
+                    <div id="result">
+                        <%= result %>
+                    </div>
+                    <%} else { %>
+                        <% } %>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>

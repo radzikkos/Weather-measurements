@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+
+
+
+    <main>
+        <div class="jumbotron">
+            <div id="content">
+                <section>
+                    <h3>Ankieta</h3>
+                    <form action="#" id="survey_form">
+                        <label for="day">Dzień: </label>
+                        <input type="text" name="day" id="day" value="01-01-2020" required>
+                        </br>
+                        <label for="temp">Temperatura</label>
+                        <input type="number" name="temp" id="temp" value="30" min="-10" max="40" required>
+                        </br>
+                        <label for="humidity">Wilgotność</label>
+                        <input type="number" name="humidity" id="humidity" value="30" min="0" max="100" required>
+                        </br>
+                        <input type="submit" value="Wyślij">
+                        <input type="button" value="Zapisz" id="save_locally">
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>

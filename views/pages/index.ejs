@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+
+
+
+    <main>
+        <div class="jumbotron">
+            <h1>Pogoda</h1>
+            <p>Pomiary pogode</p>
+            <% if (result) { %>
+                <div id="result">
+                    <%= result %>
+                </div>
+                <%} else { %>
+                    <% } %>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>
