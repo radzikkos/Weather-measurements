@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+    <main>
+        <div class="jumbotron">
+
+            <div id="extraInformationAboutSeance"></div>
+
+
+
+            <div>
+                <table class="table table-stripped">
+                    <thead class="thead-light">
+                        <tr>
+
+
+                            <th>day</th>
+                            <th>temp</th>
+                            <th>humidity</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <ul id="results">
+                            <% for(var i = 0; i < result.length; i++) {%>
+                                <tr>
+                                    <td>
+                                        <%= result[i]._id %>
+                                    </td>
+                                    <td>
+                                        <%= result[i].temp %>
+                                    </td>
+                                    <td>
+                                        <%= result[i].humidity %>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </ul>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+<!-- <script type="text/javascript" src="javascrips/fun.js"></script> -->
+
+</html>

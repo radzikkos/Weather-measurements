@@ -1,0 +1,45 @@
+#result {
+    width: 400px;
+    height: 80px;
+    font-family: 'Trocchi', serif;
+    background-color: #522d5b;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 15px;
+    padding: 5%;
+}
+
+#result1 {
+    width: 400px;
+    height: 80px;
+    font-family: 'Trocchi', serif;
+    background-color: #df0808;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    display: inline;
+}
+
+#result2 {
+    width: 400px;
+    height: 80px;
+    font-family: 'Trocchi', serif;
+    background-color: #df0808;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    display: inline;
+}
+
+#result3 {
+    width: 400px;
+    height: 80px;
+    font-family: 'Trocchi', serif;
+    background-color: #df0808;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    display: inline;
+}

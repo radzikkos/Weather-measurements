@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+
+
+
+    <main>
+        <div class="jumbotron">
+            <button type="button" id="draw_chart">Pokaż wykres</button>
+            <div class="wrapper">
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+    document.getElementById("draw_chart").addEventListener("click", function() {
+        draw_chart_temp();
+        draw_chart_humidity();
+    })
+
+    function draw_chart_temp() {
+
+        var d = [];
+        <% for(var i = 0; i < result.length; i++) {%>
+        d.push({
+            x: (<%= result[i]._id %>),
+            y: (<%= result[i].temp %>)
+        });
+        <% } %>
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            title: {
+                text: "Temperatura w podanych dniach"
+            },
+            axisX: {
+                title: "Dzień w ciągu roku"
+            },
+            axisY: {
+                title: "Temperatura"
+
+            },
+            data: [{
+                type: "line",
+                dataPoints: d
+            }]
+        });
+
+        chart.render();
+    }
+
+    function draw_chart_humidity() {
+
+        var d = [];
+        <% for(var i = 0; i < result.length; i++) {%>
+        d.push({
+            x: (<%= result[i]._id %>),
+            y: (<%= result[i].humidity %>)
+        });
+        <% } %>
+
+        var chart = new CanvasJS.Chart("chartContainer2", {
+            title: {
+                text: "Wilgotność w podanych dniach"
+            },
+            axisX: {
+                title: "Dzień w ciągu roku"
+            },
+            axisY: {
+                title: "Wilgotność"
+
+            },
+            data: [{
+                type: "column",
+                dataPoints: d
+            }]
+        });
+
+        chart.render();
+    }
+</script>
+
+
+</html>

@@ -20,14 +20,12 @@ openRequest.onerror = function() {
     alert("Cannot create local base -> " + openRequest.error);
 }
 
-var getId = function() {
-    return '_' + Math.random().toString(36).substr(2, 9);
-};
 
 function addToLocalBase(baseName, object) {
     var trans = db.transaction(baseName, "readwrite");
     var measures = trans.objectStore(baseName);
-    let request = measures.add(object, object['day']);
+    console.log("AA");
+    let request = measures.add(object);
     request.onsuccess = () => {
         alert("Dodano pomiar do lokalnej bazy")
 
@@ -79,17 +77,17 @@ function readDataFromLocal(baseName, callback) {
 }
 
 function sendToServer() {
+    console.log("Wyslano z lokalnej bazy")
     for (var i = 0; i < global_data.length; i++) {
-        console.log(global_data[i]);
         $.ajax({
             type: "POST",
             url: "/survey",
             data: global_data[i],
-            succes: function(data) {
-                console.log('Wysłano na serwer');
+            success: function(data) {
+                console.log('Wysłano ankiete');
             },
             error: function() {
-                console.log("Nie udało się wysłać na serwer");
+                console.log('Nie udalo sie wysłać ankiety.');
             }
         })
     }

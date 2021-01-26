@@ -15,18 +15,25 @@
                 <section>
                     <h3>Ankieta</h3>
                     <form action="#" id="survey_form">
-                        <label for="day">Dzień: </label>
-                        <input type="text" name="day" id="day" value="01-01-2020" required>
+                        <label for="day">Który dzień w roku: </label>
+                        <input type="number" name="day" id="day" value="1" min="1" max="365" required>
+                        </br>
+                        <div id="result1"></div>
                         </br>
                         <label for="temp">Temperatura</label>
-                        <input type="number" name="temp" id="temp" value="30" min="-10" max="40" required>
+                        <input type="number" name="temp" id="temp" value="30" min="-50" max="50" required>
+                        </br>
+                        <div id="result2"></div>
                         </br>
                         <label for="humidity">Wilgotność</label>
                         <input type="number" name="humidity" id="humidity" value="30" min="0" max="100" required>
                         </br>
+                        <div id="result3"></div>
+                        </br>
                         <input type="submit" value="Wyślij">
                         <input type="button" value="Zapisz" id="save_locally">
                     </form>
+
                 </section>
             </div>
         </div>
