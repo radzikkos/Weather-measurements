@@ -135,3 +135,7 @@ app.post('/survey', function(req, res) {
         res.status(401).send("Użytkownik niezalogowany");
     }
 })
+
+app.get('/favicon.ico', function(req, res) {
+    res.sendFile(__dirname + '/favicon.ico');
+})
