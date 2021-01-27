@@ -3,28 +3,27 @@ $(document).ready(function() {
     $("#save_locally").click(function(event) {
         let data_from_form = $("#survey_form").serialize();
         var measure = QueryStringToJSON(data_from_form);
-        // var flag = false;
-        // if ((parseInt(measure['day']) < 1) || (parseInt(measure['day']) > 365)) {
-        //     document.getElementById("result1").style.display = 'inline';
-        //     $("#result1").html("Dzień może być między 1 a 365");
-        //     flag = true;
-        // }
-        // if ((parseInt(measure['temp']) < -50) || (parseInt(measure['temp']) > 50)) {
-        //     $("#result2").html("Temperatura może być między -50 a 50");
-        //     flag = true;
-        // }
-        // if ((parseInt(measure['humidity']) < 0) || (parseInt(measure['humidity']) > 100)) {
-        //     $("#result3").html("Wilgotność może być między 0 a 100");
-        //     flag = true;
-        //     return;
-        // }
-        // if (!flag) {
-        //     $("#result3").html("");
-        //     $("#result2").html("");
-        //     $("#result1").html("");
-        //     addToLocalBase('measures', measure);
-        // }
-        addToLocalBase('measures', measure);
+        var flag = false;
+        if ((parseInt(measure['day']) < 1) || (parseInt(measure['day']) > 365)) {
+            document.getElementById("result1").style.display = 'inline';
+            $("#result1").html("Dzień może być między 1 a 365");
+            flag = true;
+        }
+        if ((parseInt(measure['temp']) < -50) || (parseInt(measure['temp']) > 50)) {
+            $("#result2").html("Temperatura może być między -50 a 50");
+            flag = true;
+        }
+        if ((parseInt(measure['humidity']) < 0) || (parseInt(measure['humidity']) > 100)) {
+            $("#result3").html("Wilgotność może być między 0 a 100");
+            flag = true;
+            return;
+        }
+        if (!flag) {
+            $("#result3").html("");
+            $("#result2").html("");
+            $("#result1").html("");
+            addToLocalBase('measures', measure);
+        }
 
     })
 
@@ -51,9 +50,9 @@ $(document).ready(function() {
             output += '<table class="table table-stripped">';
             output += '<thead class="thead-light"><tr>';
 
-            for (var heading in global_data[0]) {
-                output += '<th>' + heading + '</th>';
-            }
+            output += '<th>' + 'Dzień' + '</th>';
+            output += '<th>' + 'Temperatura' + '</th>';
+            output += '<th>' + 'Wilgotność' + '</th>';
             output += '</tr></thead>';
             output += '<tbody>';
 
@@ -79,6 +78,7 @@ $(document).ready(function() {
             success: function(response) {
                 sendFromLocalToServer();
                 alert("Zalogowano");
+                window.location.href = '/'
             },
             error: function(response) {
                 alert("Nie udało się zalogować");

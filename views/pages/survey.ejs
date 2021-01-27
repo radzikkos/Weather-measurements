@@ -13,25 +13,62 @@
         <div class="jumbotron">
             <div id="content">
                 <section>
-                    <h3>Ankieta</h3>
+                    <h3>Pomiar</h3>
                     <form action="#" id="survey_form">
-                        <label for="day">Który dzień w roku: </label>
-                        <input type="number" name="day" id="day" value="1" min="1" max="365" required>
-                        </br>
-                        <div id="result1"></div>
-                        </br>
-                        <label for="temp">Temperatura</label>
-                        <input type="number" name="temp" id="temp" value="30" min="-50" max="50" required>
-                        </br>
-                        <div id="result2"></div>
-                        </br>
-                        <label for="humidity">Wilgotność</label>
-                        <input type="number" name="humidity" id="humidity" value="30" min="0" max="100" required>
-                        </br>
-                        <div id="result3"></div>
-                        </br>
-                        <input type="submit" value="Wyślij">
-                        <input type="button" value="Zapisz" id="save_locally">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="day">Który dzień w roku: </label>
+                                </td>
+                                <td>
+                                    <input type="number" name="day" id="day" value="1" min="1" max="365" required>
+                                </td>
+                            </tr>
+                            </br>
+                            <tr>
+                                <td>
+                                    <div id="result1"></div>
+                                </td>
+                            </tr>
+                            </br>
+                            <tr>
+                                <td>
+                                    <label for="temp">Temperatura</label>
+                                </td>
+                                <td>
+                                    <input type="number" name="temp" id="temp" value="30" min="-50" max="50" required>
+                                </td>
+                            </tr>
+                            </br>
+                            <tr>
+                                <td>
+                                    <div id="result2"></div>
+                                </td>
+                            </tr>
+                            </br>
+                            <tr>
+                                <td>
+                                    <label for="humidity">Wilgotność</label>
+                                </td>
+                                <td>
+                                    <input type="number" name="humidity" id="humidity" value="30" min="0" max="100" required>
+                                </td>
+                            </tr>
+                            </br>
+                            <tr>
+                                <td>
+                                    <div id="result3"></div>
+                                </td>
+                            </tr>
+                            </br>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" value="Wyślij">
+                                    <input type="button" value="Zapisz" id="save_locally">
+                                </td>
+                            </tr>
+                        </table>
                     </form>
 
                 </section>

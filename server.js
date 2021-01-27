@@ -113,7 +113,7 @@ app.post('/login', function(req, res) {
     } else if (req.body.username === 'log' && req.body.pass === '1111') {
         req.session.user = "log";
         req.session.admin = true;
-        res.status(200).render('pages/login', { result: "Udało się zalogować" });
+        res.status(200).render('pages/index', { result: "Udało się zalogować" })
     } else { res.status(400).render('pages/login', { result: "Nie udało się zalogować" }) }
 })
 
@@ -122,6 +122,9 @@ app.post('/login', function(req, res) {
 app.post('/survey', function(req, res) {
     if (req.session.admin) {
         // logged
+        if ((req.body['day'] > 365) || (req.body['day'] < 1) || (req.body['temp'] < -50) || (req.body['temp'] > 50) || (req.body['humidity'] < 0) || (req.body['humidity'] > 100)) {
+            return res.status(400).render('pages/login', { result: "Złe wartości" });
+        }
         base.collection('measures').insertOne({ _id: req.body['day'], temp: req.body['temp'], humidity: req.body['humidity'] }, function(err, result) {
             if (err) {
                 console.log("REKORD JEST JUŻ W BAZIE");
@@ -136,6 +139,9 @@ app.post('/survey', function(req, res) {
     }
 })
 
+app.get('/documentation', function(req, res) {
+    return res.status(200).render('pages/documentation');
+})
 app.get('/favicon.ico', function(req, res) {
     res.sendFile(__dirname + '/favicon.ico');
 })
